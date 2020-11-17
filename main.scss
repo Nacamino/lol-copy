@@ -1,0 +1,289 @@
+@import "colors";
+@import "configs";
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body{
+  font-family: 'Heebo', sans-serif;
+
+
+}
+.form_container{
+  position: absolute;
+  background-color: $bck_ground;
+  width: 30%;
+  height: 100%;
+  .cabecera{
+    float: right;
+    margin: 15%;
+    right: 15%;
+    color: $gray_base;
+    font-size: .8em;
+  
+  }
+  .logo { 
+    position: relative;
+    top: 10%;
+    left: 40%;
+    img{
+      width: 70px;
+    };
+  }
+  .title {
+    font-size: .6em;
+    font-weight: 600;
+    position: absolute;
+    top: 20%;
+    left: 123px; 
+  }
+  .inputs {
+    position: absolute;
+    top: 28%;
+    left: 50px;
+    .user {
+      @extend %inputs;
+      &:focus ~ .label_user, &:valid ~ .label_user {
+        top:-10px;
+        left: 5px;
+        font-size:.6em;
+        color:#000000;
+      }
+      &:hover ~ .label_user{
+        color: rgb(122, 122, 122);
+            transition: .3s;
+        
+      }
+    };
+    .label_user{
+      padding-left: 5px;
+      @extend %label;
+
+    }
+    
+    .pass{
+      @extend %inputs;
+      margin-top: 12px;
+      &:focus ~ .label_pass, &:valid ~ .label_pass {
+        top: 29px;
+        left: 2px;
+        font-size:.6em;
+        color:#000000;
+        
+      }
+      &:hover ~ .label_pass{
+        color: rgb(122, 122, 122);
+            transition: .3s;
+        
+      }
+    };
+    .label_pass{
+      @extend %label;
+      padding: 20px;
+      padding-left: 5px;
+      
+
+    }
+  }
+  .botones {
+    display: block;
+    position: absolute;
+    top: 45%;
+    left: 50px;
+    
+    @extend %botones;
+    .fb {
+      top: 2px;
+      background-color:$fb;
+      &:hover{
+        background-color: rgb(9, 102, 222); 
+      }
+      .circle {
+        position: relative;
+        left: 28px;
+        background-color: white;
+        border-radius: 50%;
+        font-size: .9em;
+        width: 15px;
+        height: 15px;
+        padding-top: 0px;
+        color: $fb;
+        .fab {
+          padding-top: 2px;
+        }
+      }
+    }
+    .gm {
+      height: 26px;
+      top: 4.5px;
+      background-color: rgb(255, 255, 255);
+      border: 1px solid rgb(235, 235, 235);
+      &:hover{
+        background-color: rgb(247, 247, 247); 
+      }
+      img {
+        width: 18px;
+        height: auto;
+        padding-top: 3px;
+      }
+    }
+    .apple{
+      background-color: black;
+      color: white;
+      top: 0px;
+      &:hover{
+        background-color: rgb(20,20,20); 
+      } 
+    }
+  }
+  /*checkbox personalizada */
+  .checkbox{
+    position: absolute;
+    top: 51%;
+    left: 53px;
+    label {
+    user-select: none;
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    font-size: .8em;
+    color: $text_gray;
+    font-weight: 500;
+    cursor: pointer;
+    }
+    .cb {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+    
+      
+    &:checked ~ .check {
+      
+      background-color: rgb(209,57,54);
+      border: none  ;
+    } 
+    &:checked ~ .check::after {
+      display: block;
+    } 
+    };
+    .check {
+      border-radius: 2px;
+      position: absolute;
+      top: 0px;
+      left: -2px;
+      height: 18px;
+      width: 18px;
+      background-color: $gray;
+      &::after{
+        content: '';
+        position: absolute;
+        display: none;
+        left: 7px;
+        top: 3px;
+        width: 3px;
+        height: 8px;
+        border: solid white;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);  
+      }
+      
+
+    }
+    
+    
+
+
+
+
+  }
+  .div_final{
+    position: absolute;
+    top: 55%;
+    left: 65px;
+    .send{
+      background-color: $bck_ground;
+      color: $gray_hover;
+      outline: none;
+      border: 2px solid $gray_hover;
+      border-radius: 20px;
+      padding: 15px 18px;
+      font-size: 1.3em;
+      position: relative;
+      top: 90px;
+      left: 70px;
+    }
+    .enlaces{
+      a {
+        text-decoration: none;
+        color: $gray_base;
+        font-weight: 700;
+        font-size: .8em;
+        &:hover{
+          color:black;
+        }
+      }
+      display: inline-block;
+      text-align: center;
+      position: absolute;
+      width: 155px;
+      left: 20px;
+      top: 190px;
+      font-size: .8em;
+    }
+   
+
+  }
+}
+.image_container{
+  position: absolute;
+  display: inline;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url(/lol.png);
+  background-position: 6em;
+  width: 100%;
+  height: 100%;
+  .window_buttons { 
+    position: absolute;
+    right: 0px;
+    display: block;
+    .close{
+      &:hover{
+        background-color: rgb(208,54,57);
+      }
+    }
+    button{
+      @extend %b_image
+    }
+    
+    
+    
+  }
+  .help {
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    opacity: .8;
+    button {
+      font-size: 1em;
+      padding: 5px 7px;
+      border-radius: 5px;
+      border: none;
+      color: white;
+      background-color: $text_gray;
+      outline: none;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    &:hover{
+     
+      opacity: 1;
+    }
+
+    
+  }
+  
+}
+
